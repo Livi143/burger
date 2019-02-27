@@ -26,7 +26,17 @@ var orm = {
             if(err) throw err;
             cb(result);
         })
+    },
+
+    create: function(tableInput, val, cb){
+        console.log("value is ", val);
+        // hardcode an insert into statement...
+        connection.query('INSERT INTO '+tableInput+" (burger_name) VALUES ("+val+");", function(err,result){
+            if(err)throw err;
+            cb(result);
+        })
     }
+
 }
 
 module.exports = orm;
